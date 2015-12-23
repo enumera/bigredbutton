@@ -1,0 +1,56 @@
+
+<div >
+<div id="hours" style="display:inline;"></div>
+<div id="minutes" style="display:inline;"></div>
+<div id="seconds" style="display:inline;"></div>
+</div>
+
+<%= form_for @time_record do |f| %>
+  <% if @time_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@time_record.errors.count, "error") %> prohibited this time_record from being saved:</h2>
+
+      <ul>
+      <% @time_record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%=hidden_field_tag "operation", @operation %>
+  <%=hidden_field_tag "status", @status %>
+  <% if @task %>
+
+    <p><%= @task.description %></p>
+
+  <% else %>
+
+    <div class="field">
+      <%= label_tag "Task Name" %><br />
+      <%= text_field_tag :description %>
+    </div>
+  <% end %>
+<!-- 
+    <div id="bigredbutton" class="clickable-div">Time Please!</div> -->
+
+
+  <div class="actions">
+
+    <% if @operation == "create" %>
+    <% buttoncolor = "red" %>
+    <% else %>
+    <% buttoncolor = "blue "%>
+    <% end %>
+
+
+    <%= f.submit "Time Please!", class: "clickable-div #{buttoncolor}", id: "bigredbutton" %>
+  </div>
+<% end %>
+
+<div style="display:inline;">
+<div id="hours"></div>
+<div id="minutes"></div>
+<div id="seconds"></div>
+</div>
