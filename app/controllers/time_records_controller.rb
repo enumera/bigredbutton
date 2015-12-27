@@ -65,7 +65,7 @@ class TimeRecordsController < ApplicationController
     if Task.where(description: params[:description]).exists?
 
       task = Task.find_by_description(params[:description])
-      else
+        else
       task = Task.create(description: params["description"])
       end
       @time_record = TimeRecord.new(state: "open", task_id: task.id)

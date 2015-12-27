@@ -1,8 +1,20 @@
 Bigredbutton::Application.routes.draw do
+  get "homes/new"
+
+  post "homes/create"
+
+  get "homes/:id/dashboard"
+
+  get "homes/index"
+
+  put "homes/allocate_time_record"
+
   resources :tasks
 
 
   resources :time_records
+
+   root :to => 'homes#new'
 
 
   # The priority is based upon order of creation:
@@ -54,7 +66,7 @@ Bigredbutton::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'time_records#new'
+  # root :to => 'time_records#new'
 
   # See how all your routes lay out with "rake routes"
 
