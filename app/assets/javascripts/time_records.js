@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 	          minutes = ' : ' + minutes;
 	          seconds = ' : ' + parseInt(seconds);
-	          console.log("hours : " + hours + "minutes : " + minutes + "seconds : "+ seconds)
+	          // console.log("hours : " + hours + "minutes : " + minutes + "seconds : "+ seconds)
 	          
 	          $('#hours').text(hours);
 	          $('#minutes').text(minutes);

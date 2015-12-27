@@ -42,10 +42,19 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
+
     @task = Task.new(params[:task])
+
+    # binding.pry
+    if params["time_record"]
+      time_record = TimeRecord.find(params["time_record"])
+    end
 
     respond_to do |format|
       if @task.save
+        if time_record
+          @task.time_records << time_record
+        end
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
@@ -90,7 +99,7 @@ class TasksController < ApplicationController
 
     tasks.each do |p|
 
-      unless  p.time_records.where(state: "toallocate").nil?
+      unless  p.time_records.where(state: "toallocate").empty?
 
         time_records = p.time_records.where(state: "toallocate")
 

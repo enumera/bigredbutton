@@ -9,17 +9,7 @@ class TimeRecord < ActiveRecord::Base
 
     record.hours = (time_milli/(60*60)).to_i
     record.minutes = ((time_milli - hours.round * (60*60))/(60)).to_i
-
-    # hours =  hours.to_i
-    # minutes = minutes.to_i
-
-   	# record.hours = hours
-    # record.minutes = minutes
     record.save
 
-    # binding.pry
-
   end
-
-
 end
