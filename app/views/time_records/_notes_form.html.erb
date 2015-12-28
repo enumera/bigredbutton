@@ -1,0 +1,14 @@
+<% unless @time_record.id.nil? %>
+
+  <%= form_for @note, url: {action: "create", controller: "notes"}, :remote=> true do %>
+
+  	<%= hidden_field_tag "task_id", @task.id %>
+
+    <%= label_tag "New note" %>
+
+    <%= text_area_tag "note_content" %>
+
+    <%= submit_tag "Save note" %>
+
+  <% end %>
+<% end %>

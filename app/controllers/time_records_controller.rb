@@ -26,13 +26,14 @@ class TimeRecordsController < ApplicationController
   def new
     @time_record = TimeRecord.new
     @task = Task.new
+    # @note = Note.new
     @tasks = Task.all
     @operation = "create"
     @status = "open"
 
+
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @time_record }
     end
   end
 
@@ -40,6 +41,7 @@ class TimeRecordsController < ApplicationController
   def edit
     @operation = "update"
     @status = "toallocate"
+    @note = Note.new
     # @task = Task.new
     # @tasks = Task.all
 
@@ -98,22 +100,42 @@ class TimeRecordsController < ApplicationController
 
     # binding.pry
 
-    if !params[:Task].empty?
+    if @time_record.task_id.nil?
 
-      @time_record.task = Task.find(params[:Task])
+      if Task.all.count == 1
+        # binding.pry
 
-    elsif @time_record.task_id.nil?
-      @task = Task.find_by_description("unallocated")
-      # @time_record.task = @task
+          @task = Task.find_by_description("unallocated")
+
+      else
+
+
+        if params[:Task].empty?
+        # binding.pry
+
+
+          @task = Task.find_by_description("unallocated")
+
+        else 
+        # binding.pry
+
+
+          @task = Task.find(params[:Task])
+
+        end
+
+      end
     end
+
+    # @time_record.task = @task
 
     respond_to do |format|
       if @time_record.update_attributes(state: params["status"])
         # binding.pry
         @time_record.calculate_time(@time_record)
 
+        # binding.pry
         if @time_record.task_id.nil?
-
           @time_record.task = @task
           @time_record.save
         end

@@ -50,11 +50,14 @@ class TasksController < ApplicationController
       time_record = TimeRecord.find(params["time_record"])
     end
 
+    # binding.pry
+
     respond_to do |format|
       if @task.save
         if time_record
           @task.time_records << time_record
         end
+        format.js
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else

@@ -2,7 +2,7 @@
 
 <%= render "clock" %>
 
-<% if !@time_record.nil? %>
+<% if !@time_record.id.nil? %>
 
   <% if !@task.id.nil?  && !@time_record.id.nil? %>
 
@@ -48,7 +48,7 @@
   <%=hidden_field_tag "operation", @operation %>
   <%=hidden_field_tag "status", @status %>
 
-<% unless @time_record.id.nil? && @tasks.count > 0 %>
+<% if !@time_record.id.nil? && @tasks.count > 0 %>
   <% if @task.id.nil? %>
     <div class="field">
       <%= label_tag "Select a previous task" %><br />
@@ -74,5 +74,7 @@
     <%= f.submit buttontext, class: "clickable-div #{buttoncolor}", id: "bigredbutton" %>
   </div>
 <% end %>
+
+<%= render "notes_form" %>
 
 

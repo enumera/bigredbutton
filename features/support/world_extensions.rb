@@ -9,6 +9,10 @@ module SetupData
 		@select_task ||= Task.create(description: "Task to select")
 	end
 
+	def my_note
+		@note ||= Note.new
+	end
+
 end
 
 World(SetupData)

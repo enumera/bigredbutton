@@ -20,7 +20,7 @@ end
 
 Then(/^the time allocated to the task should be the (\d+) hours and (\d+) minutes$/) do |hours, minutes|
 	 @task.reload.hours.should == hours.to_i
-  	 @task.reload.minutes.should == minutes.to_i
+   @task.reload.minutes.should == minutes.to_i
 end
 
 
@@ -106,6 +106,18 @@ Then(/^if there is no task allocated to the time record then allocate if to the 
   	@time_record.reload.task.description.should =="unallocated"
 end
 
+
+Given(/^that I want to record some time$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^I press the big red button and I have not created a task$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^my time will be allocated to the default task$/) do
+  pending # express the regexp above with the code you wish you had
+end
 
 
 

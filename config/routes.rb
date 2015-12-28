@@ -1,6 +1,8 @@
 Bigredbutton::Application.routes.draw do
 
 
+  post "notes/create"
+
   resources :tasks
 
 

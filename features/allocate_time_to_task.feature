@@ -1,6 +1,13 @@
 Feature: A task should be allocate time when it is worked on
 
 
+
+Scenario: When there have been no tasks created
+	Given that I want to record some time
+	When I press the big red button and I have not created a task
+	Then my time will be allocated to the default task
+
+
 Scenario:  Create a time record
 	Given that I want to perform a task
 	When I press the big red button

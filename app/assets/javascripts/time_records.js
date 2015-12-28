@@ -32,13 +32,13 @@ $(document).ready(function(){
 	          $('#minutes').text(minutes);
 	          $('#seconds').text(seconds);
 
-	    }, 33)
-	}
+	    }, 33);
+	};
 
 	var stopClock = function(){
   		clearInterval(sessionClock);
 
-	}
+	};
 
 
 
@@ -58,6 +58,6 @@ $(document).ready(function(){
   		$('#bigredbutton').addClass("red");
   	
   	};	
-  })
+  });
 
 });
