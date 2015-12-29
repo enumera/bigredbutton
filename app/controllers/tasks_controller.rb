@@ -109,7 +109,7 @@ class TasksController < ApplicationController
         hours =  time_records.map {|t| t.hours}.reduce(:+)
         minutes = time_records.map {|t| t.minutes}.reduce(:+)
 
-
+      
 
         if minutes >= 60 
 
@@ -118,11 +118,11 @@ class TasksController < ApplicationController
           hours +=hours_to_add
          
           minutes  = minutes - hours_to_add * 60
+  
         end
 
-        p.hours = hours
-        p.minutes = minutes
-
+        p.hours += hours
+        p.minutes += minutes
         p.save
 
         time_records.each do |tr|
