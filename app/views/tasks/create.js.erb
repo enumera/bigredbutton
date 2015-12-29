@@ -1,9 +1,9 @@
-$('#task_description').val('')
+$('#task_name').val('')
 $('.new_task').fadeOut();
 $('.select_a_task').fadeOut();
 $('#note_task_id').val("<%=@task.id%>");
-$('#time_record_header').text("<%=@task.description%>");
+$('#time_record_header').text("<%=@task.name%>");
 $('.new_note').fadeIn();
 $('#note_message').fadeOut();
 $('#task_prompt').fadeOut();
-$('#bigredbutton').val("Press to finish time on: \n <%=@task.description %>");
+$('#bigredbutton').val("Press to finish time on: \n <%=@task.name %>");

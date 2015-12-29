@@ -54,7 +54,7 @@ class TimeRecordsController < ApplicationController
       @task = Task.find(@time_record.task.id)
     else
       @task =Task.new
-      @tasks= Task.where("description!=?","unallocated")
+      @tasks= Task.where("name!=?","unallocated")
     end
   end
 
@@ -64,13 +64,13 @@ class TimeRecordsController < ApplicationController
 
     # binding.pry
 
-    unless params[:description].nil?
+    unless params[:name].nil?
 
-    if Task.where(description: params[:description]).exists?
+    if Task.where(name: params[:name]).exists?
 
-      task = Task.find_by_description(params[:description])
+      task = Task.find_by_name(params[:name])
         else
-      task = Task.create(description: params["description"])
+      task = Task.create(name: params["name"])
       end
       @time_record = TimeRecord.new(state: "open", task_id: task.id)
 
@@ -107,7 +107,7 @@ class TimeRecordsController < ApplicationController
       if Task.all.count == 1
         # binding.pry
 
-          @task = Task.find_by_description("unallocated")
+          @task = Task.find_by_name("unallocated")
 
       else
 
@@ -116,7 +116,7 @@ class TimeRecordsController < ApplicationController
         # binding.pry
 
 
-          @task = Task.find_by_description("unallocated")
+          @task = Task.find_by_name("unallocated")
 
         else 
         # binding.pry

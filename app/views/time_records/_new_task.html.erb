@@ -2,7 +2,7 @@
 
   <% if !@task.id.nil?  && !@time_record.id.nil? %>
 
-    <p> Timing for task: <%= @task.description %></p>
+    <p> Timing for task: <%= @task.name %></p>
 
 
     <% elsif !@time_record.id.nil? && @task.id.nil? %>
@@ -14,8 +14,8 @@
 
       <%= hidden_field_tag "time_record", @time_record.id %>
        <div class="field">
-        <%= f.label :description %><br />
-        <%= f.text_field :description %>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
       </div>
       <div class="actions">
         <%= f.submit "New task",id:"new_task_button", class: "btn btn-success" %>

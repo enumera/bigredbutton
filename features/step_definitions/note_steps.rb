@@ -2,11 +2,11 @@ Given(/^that I have selected a task and started a time record$/) do
   visit "/"
   click_button "bigredbutton"
 
-	fill_in "task_description", :with=> "New task"
+	fill_in "task_name", :with=> "New task"
 	click_button "New task"
 	@task = Task.last
 	tr = TimeRecord.last
-  tr.task.description.should == "New task"
+  tr.task.name.should == "New task"
 end
 
 When(/^I write a note and save the note$/) do

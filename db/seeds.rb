@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Task.create(description: "unallocated")
+Task.create(name: "unallocated")

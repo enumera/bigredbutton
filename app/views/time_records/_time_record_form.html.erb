@@ -11,7 +11,7 @@
       <div class="field select_a_task">
         <br/>
         <%= label_tag "Select a previous task" %><br />
-        <%= select_tag "Task", options_from_collection_for_select(@tasks, "id", "description"), :include_blank => "Select task" %>
+        <%= select_tag "Task", options_from_collection_for_select(@tasks, "id", "name"), :include_blank => "Select task" %>
       </div>
     <% end %>
   <% end %>
