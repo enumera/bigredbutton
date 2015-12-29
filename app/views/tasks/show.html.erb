@@ -1,10 +1,71 @@
-<p id="notice"><%= notice %></p>
 
-<p>
+<div class="row">
+	<div class="col-sm-10 col-sm-offset-1">
+
+<h2> Task Details and time records</h2>
+
+<h3>
   <b>Description:</b>
   <%= @task.description %>
-</p>
+</h3>
 
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<p id="notice"><%= notice %></p>
+
+
+		<h4> Time Records </h4>
+			<table class="table table-bordered table-responsive">
+	  <tr>
+	    <th>State</th>
+	    <th>Hours</th>
+	    <th>Minutes</th>
+	    <th>Recorded on</th>
+	  </tr>
+
+
+
+	<% @task.time_records.each do |time_record| %>
+	<tr>
+		<td><%= time_record.state %></td>
+		<td><%= time_record.hours %></td>
+		<td><%= time_record.minutes %></td>
+		<td><%= time_record.updated_at.strftime("%d/%m/%y") %></td>
+	</tr>
+	<% end %>
+	</table>
+
+
+	<h4> Task Notes </h4>
+			<table class="table table-bordered table-responsive">
+
+	<col width="80%">
+  	<col width="20%">
+	  <tr>
+	    <th >Content</th>
+	    <th>Created at</th>
+	  </tr>
+
+
+
+	<% @task.notes.each do |note| %>
+	<tr>
+		<td ><%= note.content %></td>
+		<td style="width: 20%;"><%=	note.created_at.strftime("on %d/%m/%y")%></td>
+	</tr>
+	<% end %>
+	</table>
+
+
+
+
+
+<%= link_to 'Add more time', new_time_record_path %> |
+<%= link_to 'To tasks list', tasks_path %>
+
+	
+
+
+
+
+	</div>
+</div>

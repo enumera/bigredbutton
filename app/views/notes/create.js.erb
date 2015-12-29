@@ -1,4 +1,4 @@
 $('#note_content').val(''); 
-alert("new note created <%=@note.content %> on task <%=@task.description %>");
-$('ul#notes').append('<li>'+ '<%=@note.content %>' + '</li>');
+
+$('ul#notes').prepend('<li class="well well-lg wrapword">'+ '<%=@note.content %>' + '<br><sm>' +' created at ' +' <%=@note.created_at %>' + '</sm></li>');
 

@@ -1,46 +1,35 @@
 
 
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-1">
+		<h2 id="time_record_header">Start something new</h2>
+		
+	</div>
+</div>
 
-<%= render "clock" %>
+<div class="row">
+   
+      <div class="col-sm-4 col-sm-offset-1">
 
-<%= render "new_task" %>
+        <%= render "notes_form" %>
 
-
-<%= form_for @time_record do |f| %>
-
-  <%=hidden_field_tag "operation", @operation %>
-  <%=hidden_field_tag "status", @status %>
-
-<% if !@time_record.id.nil? && @tasks.count > 0 %>
-  <% if @task.id.nil? %>
-    <div class="field select_a_task">
-      <%= label_tag "Select a previous task" %><br />
-      <%= select_tag "Task", options_from_collection_for_select(@tasks, "id", "description"), :include_blank => "Select task" %>
-    </div>
-  <% end %>
-<% end %>
-<!-- 
-    <div id="bigredbutton" class="clickable-div">Time Please!</div> -->
+      </div>
 
 
-  <div class="actions">
 
-    <% if @operation == "create" %>
-      <% buttoncolor = "red" %>
-      <% buttontext = "Get Started!" %>
-    <% else %>
-      <% buttoncolor = "blue "%>
-      <% buttontext = "Press to Finish" %>
-    <% end %>
+      <div class"col-sm-6">
 
 
-    <%= f.submit buttontext, class: "clickable-div #{buttoncolor}", id: "bigredbutton" %>
+        <%= render "clock" %>
+
+        <%= render "new_task" %>
+      
+   
+
+  
+  <%= render "time_record_form" %>
   </div>
-<% end %>
-
-<p id="note_message">Select or create a task to add notes</p>
-
-<%= render "notes_form" %>
+</div>
 
 
 

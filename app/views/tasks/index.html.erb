@@ -1,31 +1,25 @@
+
+<div class = "row">
+  <div class="col-sm-10 col-sm-offset-1">
+
 <h1>Listing tasks</h1>
 
-<table>
+<table class="table table-bordered table-responsive">
   <tr>
     <th>Description</th>
     <th>No. of time records</th>
     <th>Hours spent</th>
     <th>Minutes spent</th>
     <th>No. of notes</th>
-
-
-
-    <th></th>
-    <th></th>
   </tr>
 
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= task.description %></td>
+    <td><%= link_to task.description, task %></td>
     <td><%= task.time_records.count %></td>
     <td><%= task.hours %></td>
     <td><%= task.minutes %></td>
     <td><%= task.notes.count %></td>
-
-
-
-    <td><%= link_to 'Show', task %></td>
-    <td><%= link_to 'Edit', edit_task_path(task) %></td>
 
   </tr>
 <% end %>
@@ -33,4 +27,6 @@
 
 <br />
 
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'Start time record', new_time_record_path %>
+</div>
+</div>

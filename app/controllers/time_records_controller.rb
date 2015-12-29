@@ -127,6 +127,10 @@ class TimeRecordsController < ApplicationController
         end
 
       end
+    else
+
+      @task = Task.find(@time_record.task.id)
+
     end
 
     # @time_record.task = @task
@@ -143,8 +147,8 @@ class TimeRecordsController < ApplicationController
         end
 
 
-        format.html { redirect_to time_records_path, notice: 'Time record was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to @task, notice: 'Time record was successfully updated with more time.' }
+      
       else
         format.html { render action: "edit" }
         format.json { render json: @time_record.errors, status: :unprocessable_entity }

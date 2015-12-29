@@ -16,7 +16,7 @@ class NotesController < ApplicationController
 
   def index
 
-    @notes = Note.where(task_id: params[:task_id])
+    @notes = Note.where(task_id: params[:task_id]).order("created_at DESC").limit(6)
 
     respond_to do |format|
       format.json {render json: @notes}
