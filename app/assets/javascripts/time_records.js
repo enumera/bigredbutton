@@ -69,6 +69,14 @@ $(document).ready(function(){
    	$('.new_task').fadeOut();
 	$('.select_a_task').fadeOut();
 	$('.new_note').fadeIn();
-  })
+	$.getJSON("/notes/index?task_id="+taskSelected, function(data){
+		console.log(data);
+		$.each(data, function(i, note){
+			// console.log(data[note]);
+			$('ul#notes').append('<li>'+ note.content + '</li>');
+		});
+	});
+
+  });
 
 });

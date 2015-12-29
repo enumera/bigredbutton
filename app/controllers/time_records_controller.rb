@@ -30,6 +30,7 @@ class TimeRecordsController < ApplicationController
     @tasks = Task.all
     @operation = "create"
     @status = "open"
+      @notes = Note.all
 
 
     respond_to do |format|
@@ -42,6 +43,7 @@ class TimeRecordsController < ApplicationController
     @operation = "update"
     @status = "toallocate"
     @note = Note.new
+    @notes = Note.all
     # @task = Task.new
     # @tasks = Task.all
 

@@ -3,7 +3,7 @@ class NotesController < ApplicationController
 
   	# binding.pry
 
-  	@note = Note.new(content:params[:note_content], task_id: params[:note_task_id])
+  	@note = Note.new(content:params[:note][:content], task_id: params[:note_task_id])
 
   	respond_to do |format|
   		if @note.save
@@ -13,4 +13,17 @@ class NotesController < ApplicationController
   		end
   	end
   end
+
+  def index
+
+    @notes = Note.where(task_id: params[:task_id])
+
+    respond_to do |format|
+      format.json {render json: @notes}
+    end
+
+  end
+
+
+
 end
