@@ -43,8 +43,10 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
 
-    @task = Task.new(params[:task], hours: 0, minutes: 0)
+    @task = Task.new(params[:task])
 
+     @task.hours = 0
+    @task.minutes = 0
     # binding.pry
     if params["time_record"]
       time_record = TimeRecord.find(params["time_record"])
@@ -54,6 +56,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+      
         if time_record
           @task.time_records << time_record
         end
