@@ -3,7 +3,7 @@ Given(/^that I have selected a task and started a time record$/) do
   click_button "bigredbutton"
 
 	fill_in "task_description", :with=> "New task"
-	click_button "Create Task"
+	click_button "New task"
 	@task = Task.last
 	tr = TimeRecord.last
   tr.task.description.should == "New task"

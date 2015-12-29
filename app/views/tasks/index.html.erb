@@ -4,8 +4,9 @@
   <tr>
     <th>Description</th>
     <th>No. of time records</th>
-    <th>Hours</th>
-    <th>Minutes</th>
+    <th>Hours spent</th>
+    <th>Minutes spent</th>
+    <th>No. of notes</th>
 
 
 
@@ -19,6 +20,8 @@
     <td><%= task.time_records.count %></td>
     <td><%= task.hours %></td>
     <td><%= task.minutes %></td>
+    <td><%= task.notes.count %></td>
+
 
 
     <td><%= link_to 'Show', task %></td>

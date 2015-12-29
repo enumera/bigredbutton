@@ -45,6 +45,8 @@ $(document).ready(function(){
   if ($('#operation').val()=="update"){
 
       clock();
+      // $('.new_note').fadeOut();
+      $('.new_note').fadeOut();
     };
    
 
@@ -59,5 +61,14 @@ $(document).ready(function(){
   	
   	};	
   });
+
+  $(document.body).on("change", '#Task', function(){
+   	var taskSelected = $(this).val();
+   	alert("task selected id is "+taskSelected);
+   	$('#note_task_id').val(taskSelected);
+   	$('.new_task').fadeOut();
+	$('.select_a_task').fadeOut();
+	$('.new_note').fadeIn();
+  })
 
 });

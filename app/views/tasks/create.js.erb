@@ -1,0 +1,6 @@
+$('#task_description').val('')
+$('.new_task').fadeOut();
+$('.select_a_task').fadeOut();
+$('#note_task_id').val("<%=@task.id%>");
+$('.new_note').fadeIn();
+$('#bigredbutton').val("Press to finish time on: <%=@task.description %>");

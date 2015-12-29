@@ -1,0 +1,27 @@
+<% if !@time_record.id.nil? %>
+
+  <% if !@task.id.nil?  && !@time_record.id.nil? %>
+
+    <p> Timing for task: <%= @task.description %></p>
+
+
+    <% elsif !@time_record.id.nil? && @task.id.nil? %>
+
+    <h2>Give your new task a name!</h2>
+
+      <%= form_for @task, :remote=> true, url: {action: "create", controller: "tasks"} do |f| %>
+
+
+      <%= hidden_field_tag "time_record", @time_record.id %>
+       <div class="field">
+        <%= f.label :description %><br />
+        <%= f.text_field :description %>
+      </div>
+      <div class="actions">
+        <%= f.submit "New task",id:"new_task_button" %>
+      </div>
+
+    <% end %>
+
+  <% end %>
+<% end %>

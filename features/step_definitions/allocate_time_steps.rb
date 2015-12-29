@@ -76,7 +76,7 @@ end
 
 When(/^I complete the form for a task$/) do
     fill_in "task_description", :with=> "New Task"
-    click_button "Create Task"
+    click_button "New task"
     @task = Task.last
 end
 
