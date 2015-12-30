@@ -125,9 +125,22 @@ class TasksController < ApplicationController
         end
 
         
-
         p.hours += hours
         p.minutes += minutes
+
+
+        binding.pry
+
+        if p.minutes > 59
+
+           hours_to_add_x = p.minutes/60
+
+           p.hours += hours_to_add_x
+
+           p.minutes = p.minutes - hours_to_add_x * 60
+
+        end
+
         p.save
 
         time_records.each do |tr|
@@ -137,7 +150,4 @@ class TasksController < ApplicationController
       end
     end
   end
-
-
-
 end

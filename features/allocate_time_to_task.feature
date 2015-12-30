@@ -39,4 +39,9 @@ Scenario: Allocate to task unallocated if no task is selected or created
 	When I finish the time record
 	Then if there is no task allocated to the time record then allocate if to the task "unallocated"
 
+Scenario: Allocate time to a current task where the minutes on the task when summed will be over 60
+	Given that I want to record time against a current task
+	When I will select that task
+	Then I will click the big red button
+	Then a timerecord will be recorded which will take the minutes on the task to above 60
 	
