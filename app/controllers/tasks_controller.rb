@@ -129,7 +129,7 @@ class TasksController < ApplicationController
         p.minutes += minutes
 
 
-        binding.pry
+      
 
         if p.minutes > 59
 
