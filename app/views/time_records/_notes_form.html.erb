@@ -1,6 +1,8 @@
 <% unless @time_record.id.nil? %>
-<div id="note_message">
-<p class="text-center">Select or create a task to add notes</p>
+<div class="hidden-xs">
+	<div id="note_message">
+	<p class="text-center">Select or create a task to add notes</p>
+	</div>
 </div>
 <%= form_for @note, url: {action: "create", controller: "notes"}, :remote=> true do |g| %>
 
