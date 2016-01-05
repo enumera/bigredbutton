@@ -1,16 +1,12 @@
 <% unless @time_record.id.nil? %>
-<div class="hidden-xs">
-	<div id="note_message">
-	<p class="text-center">Select or create a task to add notes</p>
-	</div>
-</div>
+
 <%= form_for @note, url: {action: "create", controller: "notes"}, :remote=> true do |g| %>
 
 	<%= hidden_field_tag "note_task_id" %>
 
   <div class="field">
     <%= g.label :content, "New note" %><br />
-    <%= g.text_area :content, rows:"10", cols:"40" %>
+    <%= g.text_area :content, rows:"5", cols:"40", disabled: true, class: "disabled",:placeholder => "Select or create a task to add notes"%>
   </div>
   <div class="actions">
     <%= g.submit "Add note", class: "btn btn-success" %>

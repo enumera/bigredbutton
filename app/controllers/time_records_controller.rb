@@ -26,11 +26,11 @@ class TimeRecordsController < ApplicationController
   def new
     @time_record = TimeRecord.new
     @task = Task.new
-    # @note = Note.new
+    @note = Note.new
     @tasks = Task.all
     @operation = "create"
     @status = "open"
-      @notes = Note.all
+    @notes = Note.all
 
 
     respond_to do |format|

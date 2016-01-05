@@ -47,7 +47,7 @@ $(document).ready(function(){
 
       clock();
       // $('.new_note').fadeOut();
-      $('.new_note').fadeOut();
+      // $('.new_note').fadeOut();
       $('#time_record_header').text("Task some time");
     };
    
@@ -72,7 +72,8 @@ $(document).ready(function(){
    	$('#note_task_id').val(taskSelected);
    	$('.new_task').fadeOut();
 	$('.select_a_task').fadeOut();
-	$('.new_note').fadeIn();
+	$('#note_content').prop('disabled', false);
+	$('#note_content').prop('placeholder', 'Add something...');
 	$('#note_message').fadeOut();
 	$('#task_prompt').fadeOut();
 	$('#time_record_header').text(taskText);
