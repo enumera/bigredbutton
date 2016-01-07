@@ -9,10 +9,7 @@ ul#notes{
 	list-style: none;
 }
 
-.well{
-	background-color: green;
-	color: white;
-}
+
 
 .wrapword{
 white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
@@ -29,3 +26,18 @@ white-space: normal;
 .disabled{
 	border: solid 1px #d3d3d3;
 }
+
+.group{
+	background-color: red;
+}
+
+.task{
+	background-color: blue;
+	color: white;
+}
+
+.clickable-div{
+	cursor: pointer;
+}
+
+

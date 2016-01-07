@@ -20,6 +20,37 @@
 
         <%= render "notes_form" %>
       </div>
+
+      <div class="col-sm-4">
+
+        <% if @groups %>
+        <div id="groups">
+          <h3>Groups <span class="badge"><sm><%=@groups.count %></sm></span></h3>
+            <% @groups.each do |group| %>
+            <div class="well well-sm group clickable-div" value="<%=group.id%>">
+              <%=group.name %><span class="badge pull-right"><sm>Tasks : <%=group.tasks.count %></sm></span>
+            </div>
+     
+          <% end %>
+          </div>
+        <% end %>
+
+
+        <% if @tasks %>
+        <div id="tasks">
+          <h3>Tasks</h3>
+          <% @tasks.each do |task| %>
+          <div class="well well-sm task clickable-div" value="<%=task.id %>">
+            <%=task.name %><span class="badge pull-right clickable-div"><sm>Time : <%=task.hours %> hrs  :  <%=task.minutes %> mins</sm></span></div>
+          <% end %>
+        </div>
+        <% end %>
+
+
+
+
+      </div>
+
   </div>
 
 

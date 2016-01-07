@@ -46,6 +46,7 @@ class TimeRecordsController < ApplicationController
     @notes = Note.all
     # @task = Task.new
     # @tasks = Task.all
+    @groups = Group.order(:name).includes(:tasks)
 
     @time_record = TimeRecord.find(params[:id])
 

@@ -8,3 +8,7 @@
 
 
 Task.create(name: "unallocated")
+
+g1 = Group.create(name: "New group 1")
+g2 = Group.create(name: "New group 2")
+
