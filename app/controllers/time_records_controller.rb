@@ -27,7 +27,7 @@ class TimeRecordsController < ApplicationController
     @time_record = TimeRecord.new
     @task = Task.new
     @note = Note.new
-    @tasks = Task.all
+  
     @operation = "create"
     @status = "open"
     @notes = Note.all
@@ -48,6 +48,7 @@ class TimeRecordsController < ApplicationController
     # @tasks = Task.all
     @groups = Group.order(:name).includes(:tasks)
 
+
     @time_record = TimeRecord.find(params[:id])
 
     unless @time_record.task_id.nil?
@@ -55,6 +56,7 @@ class TimeRecordsController < ApplicationController
       @task = Task.find(@time_record.task.id)
     else
       @task =Task.new
+      @groups = Group.order(:name).includes(:tasks)
       @tasks= Task.where("name!=?","unallocated")
     end
   end

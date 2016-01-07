@@ -4,11 +4,13 @@ Bigredbutton::Application.routes.draw do
   post "notes/create"
   get "notes/index"
 
+  get "groups/index"
+
+
   resources :tasks
 
 
   resources :time_records
-
 
 
 

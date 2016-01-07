@@ -1,0 +1,14 @@
+
+        <% if @groups %>
+        <div id="groups">
+          <h3>Groups <span class="badge"><sm><%=@groups.count %></sm></span></h3>
+            <% @groups.each do |group| %>
+             <%=link_to groups_index_path(:id => group.id), method: :get, remote: true, class: "nounderline" do %>
+            <div class="well well-sm group clickable-div" value="<%=group.id%>">
+              <%=group.name %><span class="badge pull-right"><sm>Tasks : <%=group.tasks.count %></sm></span>
+            </div>
+            <% end %>
+     
+          <% end %>
+          </div>
+        <% end %>
