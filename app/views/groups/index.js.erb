@@ -1,4 +1,6 @@
-$("#full_tasks").fadeOut(function(){$("#partial_tasks_header").show();$("#tasks").html("<%= escape_javascript(render(@tasks)) %>").fadeIn(); });
-// $("#partial_tasks_header").show();
-// $("#tasks").html("<%= escape_javascript(render(@tasks)) %>").fadeIn();
-// $("#tasks").html("<%= escape_javascript(render(@tasks)) %>");
+$("#full_tasks").fadeOut(
+	function(){
+		$("#partial_tasks_header").show();
+		$("#tasks").html("<%= escape_javascript(render(@tasks)) %>").fadeIn(); 
+	}
+);
