@@ -1,12 +1,15 @@
 Bigredbutton::Application.routes.draw do
 
 
-  post "notes/create"
-  get "notes/index"
+  
+  get "notes/index_all"
+
 
   get "groups/index"
 
 
+
+  resources :notes
   resources :tasks
 
 

@@ -26,6 +26,12 @@ gem 'rails_12factor', group: :production
 
 
 
+gem 'redcarpet'
+
+gem 'albino'
+gem 'nokogiri'
+
+gem 'markdownjs-rails'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.8.1"

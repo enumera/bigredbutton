@@ -49,8 +49,12 @@
 
 	<% @task.notes.each do |note| %>
 	<tr>
-		<td ><%= note.content %></td>
-		<td style="width: 20%;"><%=	note.created_at.strftime("on %d/%m/%y")%></td>
+		<td ><%= dat_markdown(note.content) %></td>
+		<td style="width: 20%;"><%=	note.created_at.strftime("on %d/%m/%y")%>
+
+			<%= link_to 'Edit', edit_note_path(note) %>
+
+		</td>
 	</tr>
 	<% end %>
 	</table>
